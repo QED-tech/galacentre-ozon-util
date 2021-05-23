@@ -17,14 +17,19 @@ class GallaParser
 
     public function findCategoryByKeyword(string $keyword = ''): array
     {
-        return array_filter(array_map(function ($item) use ($keyword) {
-            if (mb_strpos(mb_strtolower($item['title']) ?? '', mb_strtolower($keyword)) !== false) {
-                return $item['category_id'];
-            }
-            if (!empty($item['children'])) {
-                return $this->findCategoryByKeyword($item['children'], $keyword);
-            }
-        }, $this->treeCategories));
+        return array_filter(
+            array_map(
+                function ($item) use ($keyword) {
+                    if (mb_strpos(mb_strtolower($item['title']) ?? '', mb_strtolower($keyword)) !== false) {
+                        return $item['category_id'];
+                    }
+                    if (!empty($item['children'])) {
+                        return $this->findCategoryByKeyword($item['children'], $keyword);
+                    }
+                },
+                $this->treeCategories
+            )
+        );
     }
 
     public function findCategory(string $keyword = ''): int

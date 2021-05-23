@@ -1,10 +1,9 @@
 #!/usr/bin/php
 <?php
 
-use function app\addProductsOzon;
-use function app\getExample;
-
 require __DIR__ . '/../vendor/autoload.php';
+
+/********* Initial *********/
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
 $dotenv->load();
@@ -19,12 +18,9 @@ foreach ([$galaKey, $ozonApiKey, $ozonClientId] as $key) {
     }
 }
 
-$product = json_decode(getExample(), true);
-ksort($product, SORT_STRING);
-
 $config = [
     'clientId' => $ozonClientId,
     'apiKey' => $ozonApiKey,
 ];
 
-addProductsOzon($product, $config);
+/********* *********/

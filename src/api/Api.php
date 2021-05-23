@@ -24,7 +24,7 @@ class Api
         $headers = [];
         $request = new Request('POST', static::HOST . $url, $headers, $body);
         $response = $this->client->send($request);
-        return $response;
+        return $this->proccessResponse($response);
     }
 
     private function proccessResponse(ResponseInterface $response): array
