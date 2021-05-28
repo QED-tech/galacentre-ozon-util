@@ -24,14 +24,18 @@ class GallaParser
                         return $item['category_id'];
                     }
                     if (!empty($item['children'])) {
-                        return $this->findCategoryByKeyword($item['children'], $keyword);
+                        return $this->findCategoryByKeyword($keyword);
                     }
+                    return [];
                 },
                 $this->treeCategories
             )
         );
     }
 
+    /**
+     * @throws Exception
+     */
     public function findCategory(string $keyword = ''): int
     {
         $searchResult = $this->findCategoryByKeyword($keyword);
