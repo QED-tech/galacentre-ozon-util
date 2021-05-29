@@ -19,7 +19,7 @@ class Api
     {
         $this->client = new Client();
     }
-    
+
     private function processResponse(ResponseInterface $response): array
     {
         $json = (string) $response->getBody();
