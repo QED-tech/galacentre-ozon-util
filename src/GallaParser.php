@@ -11,6 +11,7 @@ class GallaParser
 
     public function __construct()
     {
+        //TODO Replace to api call
         $treeContent = file_get_contents(__DIR__ . '/../categories.json');
         $this->treeCategories = json_decode($treeContent, true);
     }
