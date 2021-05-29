@@ -21,7 +21,7 @@ class GallaParser
         return array_filter(
             array_map(
                 function ($item) use ($keyword) {
-                    if (mb_strpos(mb_strtolower($item['title']) ?? '', mb_strtolower($keyword)) !== false) {
+                    if (mb_strpos(mb_strtolower($item['title'] ?? ''), mb_strtolower($keyword)) !== false) {
                         return $item['category_id'];
                     }
                     if (!empty($item['children'])) {
