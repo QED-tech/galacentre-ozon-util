@@ -19,18 +19,7 @@ class Api
     {
         $this->client = new Client();
     }
-
-    /**
-     * @throws GuzzleException
-     */
-    public function postRequest(string $url, string $body): array
-    {
-        $headers = [];
-        $request = new Request('POST', static::HOST . $url, $headers, $body);
-        $response = $this->client->send($request);
-        return $this->processResponse($response);
-    }
-
+    
     private function processResponse(ResponseInterface $response): array
     {
         $json = (string) $response->getBody();
