@@ -50,7 +50,7 @@ class Api
     /**
      * @throws GuzzleException
      */
-    public function getRequest(string $url): array
+    public function getRequest(string $url, array $parameters = []): array
     {
         $fullUrl = implode('', [static::HOST, $url]);
         $response = $this->client->request('GET', $fullUrl);

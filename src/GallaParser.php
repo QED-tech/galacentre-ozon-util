@@ -45,9 +45,4 @@ class GallaParser
         $result = collect($searchResult)->flatten()->values()->all();
         return $result[0];
     }
-
-    public function prepareProductForOzon()
-    {
-        //TODO Implement function
-    }
 }
